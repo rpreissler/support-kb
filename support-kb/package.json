@@ -1,0 +1,17 @@
+{
+  "name": "support-kb",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#lib/*": "./src/lib/*"
+  },
+  "scripts": {
+    "render": "vite build --ssr src/routes/kb/incidents/4471-what-it-shows/+page.svx --outDir .ssr && CSSBUILD=1 vite build && node scripts/render.mjs"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "^5.0.0",
+    "mdsvex": "^0.12.3",
+    "svelte": "^5.0.0",
+    "vite": "^6.0.0"
+  }
+}

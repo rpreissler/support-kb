@@ -1,0 +1,76 @@
+---
+layout: runbook
+title: '#4471 · what it shows'
+owner: rpreissler
+status: open
+reviewed: 2026-10-28
+signature: rpreissler
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import QueueTimeline from '#lib/kb/QueueTimeline.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  import ProblemLedger from '#lib/kb/ProblemLedger.svelte';
+
+  const signature = 'rpreissler';
+
+  // One ticket per problem found in the #4471 pile, filed in this repo.
+  const tickets = {
+    parser: { url: 'https://github.com/rpreissler/support-kb/issues/1', title: 'the shared parser reads every date month first' },
+    hint: { url: 'https://github.com/rpreissler/support-kb/issues/2', title: 'booking-v3 prints an MM/DD hint into day-first locales' },
+  };
+</script>
+
+[#4471](/kb/incidents/4471) says **one issue, one fix queued**. The pile behind its number holds
+two problems, and the desk's own logic can see both. [Decision 0001](/kb/decisions/0001-dedupe-by-subject)
+merges reports by subject line alone and never reads a body, so a second bug rode in with the
+first one and sat there counted.
+
+## What the pile actually holds
+
+<CauseTable ticket={4471} />
+
+The table above is the desk's own component over the desk's own export. The `parser` row is what
+#4471 really covers: the shared parser reads every date month first, so day-first tenants' dates
+come out flipped; the queued fix addresses it. The `hint` row is a different bug: `booking-v3`
+prints an `MM/DD/YYYY` hint to tenants who write the day first, and then reads what those tenants
+type the other way. The last column already says it: *not this ticket — no ticket of its own*.
+The parser fix will not clear these; the hint or the form's reading has to change.
+
+## One ticket per problem
+
+<ProblemLedger {tickets} />
+
+## What the count hides
+
+<Callout kind="warn">
+Export lines are not reports. The ticket system exports in overlapping pages, so the file behind
+this incident runs above its own unique ids. Count with `uniqueById` before you say a number out
+loud; the ledger above does.
+</Callout>
+
+- The **tagged as** column is intake's guess from the reporter's browser. Where it disagrees with
+  the cause, the tenant's locale decides — the guesses miss often enough to matter on both rows.
+- The fine print under the first table comes from `desk-notes.json`: reports the desk read as a
+  one-day move rather than a month flip. They stay counted where filed, but the parser fix should
+  not be expected to clear them.
+- [Decision 0001](/kb/decisions/0001-dedupe-by-subject) has not been re-read inside the desk's own
+  staleness window. The `hint` reports are what that decision costs.
+
+## Since April, by week
+
+<QueueTimeline ticket={4471} />
+
+The two rows stop on different days: the `hint` reports ran out before the desk wrote the incident
+page, and the `parser` reports were still arriving when this export was cut. One queue, two
+problems, two clocks.
+
+## Lesson
+
+A big ticket is not automatically one bug. It is one bug plus whatever rode in on a matching
+subject. Group by cause from the data before writing "one issue, one fix" — the fix you queue
+only covers what you counted together.
+
+<RenderStamp {signature} />
