@@ -43,10 +43,11 @@ The parser fix will not clear these; the hint or the form's reading has to chang
 
 <ProblemLedger {tickets} />
 
-Both tickets above are closed the way the desk closes things: marked *known* — the split is
-delivered here, the parser fix lives on the desk's own #4471, and the hint row's fix is a choice
-still to be made: make the hint follow the tenant's locale, or make the form's reading follow the
-hint it prints.
+The desk closes tickets when the resolution lands, not when the reading is done. For this split,
+the resolution is this page: the tables above are built from the export at render time. Merging
+the pull request that ships this page closes both tickets. The parser row's fix is the desk's
+queued one on #4471; the hint row's fix is still a choice to make: make the hint follow the
+tenant's locale, or make the form's reading follow the hint it prints.
 
 ## What the count hides
 
