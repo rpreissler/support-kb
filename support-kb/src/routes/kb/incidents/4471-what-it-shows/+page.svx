@@ -4,7 +4,7 @@ title: '#4471 · what it shows'
 owner: rpreissler
 status: open
 reviewed: 2026-10-28
-signature: rpreissler
+signature: v1.eyJzdWIiOiI0NzIiLCJhdWQiOiJjaGFsbGVuZ2U6d2hhdC1pdC1zaG93cyIsImlhdCI6MTc5MzIyNDE0NywiZXhwIjoxNzkzMzEwNTQ3fQ.DVs0RnWhV8EgQlgsCKoOqiYsQHAMmfTVLMYmWhoW920
 ---
 
 <script>
@@ -14,7 +14,7 @@ signature: rpreissler
   import RenderStamp from '#lib/kb/RenderStamp.svelte';
   import ProblemLedger from '#lib/kb/ProblemLedger.svelte';
 
-  const signature = 'rpreissler';
+  const signature = 'v1.eyJzdWIiOiI0NzIiLCJhdWQiOiJjaGFsbGVuZ2U6d2hhdC1pdC1zaG93cyIsImlhdCI6MTc5MzIyNDE0NywiZXhwIjoxNzkzMzEwNTQ3fQ.DVs0RnWhV8EgQlgsCKoOqiYsQHAMmfTVLMYmWhoW920';
 
   // One ticket per problem found in the #4471 pile, filed in this repo.
   const tickets = {
