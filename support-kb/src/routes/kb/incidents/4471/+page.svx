@@ -3,7 +3,7 @@ layout: runbook
 title: '#4471 · dates parse mm/dd in eu locales'
 owner: support desk
 status: closed
-reviewed: 2026-10-28
+reviewed: 2026-10-05
 ---
 
 <script>
@@ -24,9 +24,9 @@ fix does not cover it. The reading, the counts and one ticket per problem are on
 [what #4471 shows](/kb/incidents/4471-what-it-shows).
 
 <Callout kind="warn">
-Closed as split. One pile, two problems, two tickets — not one fix. The hint row waits on a desk
-decision: make the form's hint follow the tenant's locale, or make its reading follow the hint it
-prints.
+Closed 05 October. The split held: parser — fixed, `fix(dates): parse dd/mm for eu locales`.
+Hint — won't fix; the booking-v3 form is retired, and with it the bug. Split record and per-problem
+tickets: [what #4471 shows](/kb/incidents/4471-what-it-shows).
 </Callout>
 
 ## What was merged

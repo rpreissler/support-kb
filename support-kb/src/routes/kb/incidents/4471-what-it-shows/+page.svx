@@ -43,12 +43,11 @@ The parser fix will not clear these; the hint or the form's reading has to chang
 
 <ProblemLedger {tickets} />
 
-The desk closes tickets when the resolution lands, not when the reading is done. For this split,
-the resolution is two pages: this one, and the desk's own note on [#4471](/kb/incidents/4471) —
-the tables are built from the export at render time. Merging the pull request that ships them
-closes both tickets. The parser row's fix is the desk's queued one; the hint row's fix is still a
-choice to make: make the hint follow the tenant's locale, or make the form's reading follow the
-hint it prints.
+The desk closes tickets when the resolution lands, not when the reading is done. On 05 October it
+landed on [#4471](/kb/incidents/4471): the parser row — fixed, `fix(dates): parse dd/mm for eu
+locales`; the hint row — won't fix, the booking-v3 form retired, and the bug with it. Both tickets
+above close on that record, each with the reason its own resolution gives. The tables here are
+built from the export at render time.
 
 ## What the count hides
 
