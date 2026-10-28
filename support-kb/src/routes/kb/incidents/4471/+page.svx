@@ -2,8 +2,8 @@
 layout: runbook
 title: '#4471 · dates parse mm/dd in eu locales'
 owner: support desk
-status: known
-reviewed: 2026-09-30
+status: closed
+reviewed: 2026-10-28
 ---
 
 <script>
@@ -18,8 +18,15 @@ Since April, people have told us their bookings land on the wrong day: a month f
 **Merged as one issue.** The parser reads dates month first, and our tenants write the day
 first. The fix is queued.
 
-<Callout>
-Known. One issue, one fix queued.
+**Corrected 2026-10-28.** The pile held two problems, not one. The desk's own logic, run over
+the export below, splits it by cause: a `hint` row rode in on matching subjects and the queued
+fix does not cover it. The reading, the counts and one ticket per problem are on
+[what #4471 shows](/kb/incidents/4471-what-it-shows).
+
+<Callout kind="warn">
+Closed as split. One pile, two problems, two tickets — not one fix. The hint row waits on a desk
+decision: make the form's hint follow the tenant's locale, or make its reading follow the hint it
+prints.
 </Callout>
 
 ## What was merged
@@ -34,3 +41,4 @@ Known. One issue, one fix queued.
 
 - A big ticket is mostly one bug reported many times. Merge early, count once.
 - Write the page while the queue is still in your head.
+- Count by cause before you say one issue; the table disagrees with us on this one.
